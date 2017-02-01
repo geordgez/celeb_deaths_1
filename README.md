@@ -6,8 +6,8 @@ The pipeline has been consolidated into [a single notebook](https://github.com/g
 
 Steps:
 
-1. For summary pages of celebrity deaths by month (and year), batch query Wikipedia API in groups of $n < 50$: the Wikipedia API allows up to 50 queries at a time and API etiquette implicitly limits to maximum 1 query/second.
+1. For summary pages of celebrity deaths by month (and year), batch query Wikipedia API in groups of $n < 50$: the Wikipedia API allows up to 50 queries at a time and API etiquette implicitly limits rate to maximum 1 query/second. This query will have hundreds of entries --> tens of batched queries.
 
-2. Combine the results of all queries and euse regex and pattern matching to parse out fields, columns, and variables of interest.
+2. Combine the results of all queries and regex and pattern matching to parse out fields, columns, and variables of interest.
 
-3. Collect all resulting entry names (each observation should be a person/figure) and batch query again again for wiki page size, date of birth, date of death, etc.
+3. Collect all resulting entry names (each observation should be a person/figure) and batch query again for wiki page size, date of birth, date of death, etc. This query will have tens of thousands of entries --> thousands of batched queries.
